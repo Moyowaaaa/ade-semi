@@ -1,0 +1,25 @@
+{
+  "name": "vite-base",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite src --port 3000",
+    "build": "vite build src",
+    "preview": "vite preview",
+    "studio": "cd studio && sanity dev",
+    "studio:deploy": "cd studio && sanity deploy"
+  },
+  "devDependencies": {
+    "vite": "^4.2.0",
+    "@sanity/cli": "^3.22.0"
+  },
+  "dependencies": {
+    "@sanity/client": "^7.20.0",
+    "@studio-freight/lenis": "^1.0.19",
+    "dotenv": "^17.4.1",
+    "gsap": "^3.12.2",
+    "sass": "^1.62.0",
+    "splitting": "^1.0.6"
+  }
+}

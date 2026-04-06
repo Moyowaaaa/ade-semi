@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semilore & Adeoluwa — August 15, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/wedding.scss" />
+  </head>
+  <body>
+    <canvas id="petals-canvas"></canvas>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#countdown">Countdown</a>
+      <a href="#story">Our Story</a>
+      <a href="#details">Details</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#registry">Registry</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-deco hero-deco-tl">✦</div>
+      <div class="hero-deco hero-deco-br">✿</div>
+      <p class="hero-eyebrow">
+        Together with their families joyfully invite you to celebrate
+      </p>
+      <h1 class="hero-names">
+        Semilore
+        <em>&amp;</em>
+        Adeoluwa
+      </h1>
+      <p class="hero-date">
+        August 15, 2026 &nbsp;·&nbsp; New Covenant Church, IITA Center, Ibadan
+      </p>
+      <p class="hero-tagline">"Two souls, one heart, forever entwined."</p>
+      <div class="scroll-indicator"><span></span>Scroll</div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section id="countdown">
+      <div class="inner" style="text-align: center">
+        <p class="section-label">The big day approaches</p>
+        <h2 class="section-title">Counting Down to Forever</h2>
+        <div class="divider"></div>
+        <div class="countdown-wrapper">
+          <div class="countdown-unit">
+            <div class="countdown-num" id="cd-days">000</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-num" id="cd-hours">00</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-num" id="cd-mins">00</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-num" id="cd-secs">00</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+        <p class="countdown-accent">
+          ✦ &nbsp; August 15, 2026 &nbsp;·&nbsp; Ceremony at 10:00 AM &nbsp; ✦
+        </p>
+      </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section id="story">
+      <div class="inner">
+        <p class="section-label">How it began</p>
+        <h2 class="section-title">Our Story</h2>
+        <div class="divider"></div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-content">
+              <p class="tl-year">2018</p>
+              <h3 class="tl-title">First Meeting</h3>
+              <p class="tl-text">
+                A chance encounter that felt written in the stars. What started
+                as a simple conversation blossomed into something neither of
+                them could have planned — a deep, genuine connection that would
+                change their lives forever.
+              </p>
+            </div>
+            <div class="tl-dot">
+              <div class="dot"></div>
+              <div class="line"></div>
+            </div>
+            <div class="tl-photo">
+              <div class="tl-photo-placeholder">
+                <span class="tl-photo-label">Add Photo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="tl-photo">
+              <div class="tl-photo-placeholder">
+                <span class="tl-photo-label">Add Photo</span>
+              </div>
+            </div>
+            <div class="tl-dot">
+              <div class="dot"></div>
+              <div class="line"></div>
+            </div>
+            <div class="tl-content">
+              <p class="tl-year">2024</p>
+              <h3 class="tl-title">Adventures Begin</h3>
+              <p class="tl-text">
+                From the streets of Lagos to the rolling hills of Obudu, they
+                discovered that the world was most beautiful when shared. Every
+                journey became a love letter written together.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="tl-content">
+              <p class="tl-year">2025</p>
+              <h3 class="tl-title">The Proposal</h3>
+              <p class="tl-text">
+                Under a golden sky at sunset, with everything glowing soft and
+                warm, Adeoluwa opened a small velvet box. Semilore said yes
+                before he finished the question. The rest is history.
+              </p>
+            </div>
+            <div class="tl-dot">
+              <div class="dot"></div>
+              <div class="line"></div>
+            </div>
+            <div class="tl-photo">
+              <div class="tl-photo-placeholder">
+                <span class="tl-photo-label">Add Photo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="tl-photo">
+              <div class="tl-photo-placeholder">
+                <span class="tl-photo-label">Add Photo</span>
+              </div>
+            </div>
+            <div class="tl-dot"><div class="dot"></div></div>
+            <div class="tl-content">
+              <p class="tl-year">2026</p>
+              <h3 class="tl-title">Forever Starts Here</h3>
+              <p class="tl-text">
+                With family, friends, and overflowing hearts, they begin the
+                greatest adventure of all — a lifetime of love, laughter, and
+                choosing each other, every single day.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section id="details">
+      <div class="inner">
+        <p class="section-label">What you need to know</p>
+        <h2 class="section-title">Wedding Details</h2>
+        <div class="divider"></div>
+
+        <div class="details-grid">
+          <div class="detail-card">
+            <div class="detail-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
+            <h3>Date</h3>
+            <p>Saturday<br />August 15, 2026</p>
+          </div>
+          <div class="detail-card">
+            <div class="detail-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3>Ceremony · 10:00 AM</h3>
+            <p>New Covenant Church<br />IITA Center<br />Ibadan, Oyo State</p>
+          </div>
+          <div class="detail-card">
+            <div class="detail-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h3>Reception · 1:00 PM</h3>
+            <p>Daylan Event Center<br />Eleyele<br />Ibadan, Oyo State</p>
+          </div>
+          <div class="detail-card">
+            <div class="detail-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polygon
+                  points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
+                />
+              </svg>
+            </div>
+            <h3>Getting There</h3>
+            <p>Ample parking at both venues. Please arrive 15 minutes early.</p>
+          </div>
+        </div>
+
+        <!-- Venue Maps -->
+        <div class="venues-split">
+          <div class="venue-card">
+            <div class="venue-card-header">
+              <span class="venue-tag ceremony">Ceremony · 10:00 AM</span>
+              New Covenant Church
+            </div>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.0085!2d3.9147999!3d7.4900623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039edf1f3eb6d6b%3A0x5bd3d6441eb58ee2!2sNew%20Covenant%20Church%20IITA%20Conference!5e0!3m2!1sen!2sng!4v1700000000002!5m2!1sen!2sng"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <p class="venue-address">
+              📍 New Covenant Church, IITA Center, Ibadan, Nigeria
+            </p>
+          </div>
+          <div class="venue-card">
+            <div class="venue-card-header">
+              <span class="venue-tag reception">Reception · 1:00 PM</span>
+              Daylan Events Centre
+            </div>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1085m!2d3.8087965!3d7.4340023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039f2cb58a33ed9%3A0xa9a05bcdcb7d3f91!2sDaylan%20Events%20Centre!5e0!3m2!1sen!2sng!4v1700000000003!5m2!1sen!2sng"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <p class="venue-address">
+              📍 Daylan Events Centre, Eleyele, Ibadan, Nigeria
+            </p>
+          </div>
+        </div>
+
+        <!-- Dress Code -->
+        <div class="dresscode-section">
+          <h3>Dress Code</h3>
+          <p>
+            Smart Casual / Traditional Attire. We warmly invite you to dress in
+            our wedding colours — your presence in these hues will help us paint
+            the most beautiful memory.
+          </p>
+          <div class="color-swatches">
+            <div class="swatch-group">
+              <div class="swatch swatch-olive"></div>
+              <div class="swatch-name">Olive Green</div>
+              <div class="swatch-hex">#6B7C52</div>
+            </div>
+            <div class="swatch-group">
+              <div class="swatch swatch-olive-light"></div>
+              <div class="swatch-name">Sage Olive</div>
+              <div class="swatch-hex">#8A9E68</div>
+            </div>
+            <div class="swatch-group">
+              <div class="swatch swatch-blush"></div>
+              <div class="swatch-name">Blush Pink</div>
+              <div class="swatch-hex">#F4B8B0</div>
+            </div>
+            <div class="swatch-group">
+              <div class="swatch swatch-blush-deep"></div>
+              <div class="swatch-name">Deep Blush</div>
+              <div class="swatch-hex">#E8908A</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schedule -->
+        <div class="schedule">
+          <h3>Schedule of Events</h3>
+          <ul class="schedule-list">
+            <li class="schedule-divider">Ceremony — New Covenant Church</li>
+            <li><strong>9:30 AM</strong> Guest arrival &amp; seating</li>
+            <li><strong>10:00 AM</strong> Wedding ceremony begins</li>
+            <li>
+              <strong>12:00 PM</strong> Travel to Daylan Events Centre, Eleyele
+            </li>
+            <li class="schedule-divider">Reception — Daylan Events Centre</li>
+            <li><strong>1:00 PM</strong> Reception opens</li>
+            <li><strong>2:00 PM</strong> Grand entrance</li>
+            <li>
+              <strong>3:00 PM</strong> Toasts, first dance &amp; celebrations
+            </li>
+            <li><strong>5:00 PM</strong> Cake cutting &amp; dancing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp">
+      <div class="inner" style="text-align: center">
+        <p class="section-label">Kindly reply by June 1, 2026</p>
+        <h2 class="section-title">Will You Join Us?</h2>
+        <div class="divider"></div>
+        <p>
+          We would be so honoured to have you celebrate with us. Please let us
+          know if you'll be joining by clicking below. Your presence is our
+          greatest gift.
+        </p>
+        <button
+          class="btn"
+          onclick="document.getElementById('rsvp-modal').classList.add('open')"
+        >
+          RSVP Now
+        </button>
+      </div>
+    </section>
+
+    <!-- RSVP MODAL -->
+    <div class="modal-overlay" id="rsvp-modal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>RSVP — Semilore &amp; Adeoluwa</h3>
+          <button
+            class="modal-close"
+            onclick="
+              document.getElementById('rsvp-modal').classList.remove('open')
+            "
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body" id="rsvp-modal-body">
+          <div
+            style="
+              padding: 2.5rem 2.5rem 3rem;
+              max-width: 520px;
+              margin: 0 auto;
+            "
+          >
+            <p
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-size: 1.05rem;
+                font-style: italic;
+                color: var(--text-light);
+                text-align: center;
+                margin-bottom: 2rem;
+                line-height: 1.7;
+              "
+            >
+              We're so glad you're here! Please fill in your details so we can
+              celebrate with you.
+            </p>
+            <div class="rsvp-field">
+              <label class="rsvp-label"
+                >Full Name <span style="color: var(--deep-rose)">*</span></label
+              >
+              <input
+                class="rsvp-input"
+                id="rsvp-name"
+                type="text"
+                placeholder="e.g. Amara Okafor"
+              />
+            </div>
+            <div class="rsvp-field">
+              <label class="rsvp-label"
+                >Email Address
+                <span style="color: var(--deep-rose)">*</span></label
+              >
+              <input
+                class="rsvp-input"
+                id="rsvp-email"
+                type="email"
+                placeholder="e.g. amara@email.com"
+              />
+            </div>
+            <div class="rsvp-field">
+              <label class="rsvp-label">Phone Number</label>
+              <input
+                class="rsvp-input"
+                id="rsvp-phone"
+                type="tel"
+                placeholder="e.g. 0801 234 5678"
+              />
+            </div>
+            <div class="rsvp-field">
+              <label class="rsvp-label"
+                >Will you be attending?
+                <span style="color: var(--deep-rose)">*</span></label
+              >
+              <div class="rsvp-radio-group">
+                <label class="rsvp-radio"
+                  ><input type="radio" name="attendance" value="yes" />
+                  <span>Joyfully accepts</span></label
+                >
+                <label class="rsvp-radio"
+                  ><input type="radio" name="attendance" value="no" />
+                  <span>Regretfully declines</span></label
+                >
+              </div>
+            </div>
+            <div class="rsvp-field">
+              <label class="rsvp-label">Which events will you attend?</label>
+              <div class="rsvp-check-group">
+                <label class="rsvp-check"
+                  ><input
+                    type="checkbox"
+                    name="event"
+                    value="ceremony"
+                    checked
+                  />
+                  <span>Ceremony — 10:00 AM, New Covenant Church</span></label
+                >
+                <label class="rsvp-check"
+                  ><input
+                    type="checkbox"
+                    name="event"
+                    value="reception"
+                    checked
+                  />
+                  <span>Reception — 1:00 PM, Daylan Events Centre</span></label
+                >
+              </div>
+            </div>
+            <div class="rsvp-field">
+              <label class="rsvp-label"
+                >A message for the couple
+                <span style="font-size: 0.75rem; color: var(--text-light)"
+                  >(optional)</span
+                ></label
+              >
+              <textarea
+                class="rsvp-input rsvp-textarea"
+                id="rsvp-message"
+                placeholder="Share your well wishes or a favourite memory 💌"
+                rows="3"
+              ></textarea>
+            </div>
+            <button
+              class="btn"
+              style="width: 100%; margin-top: 1rem"
+              onclick="submitRSVP(this)"
+            >
+              Send My RSVP ✦
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGISTRY -->
+    <section id="registry">
+      <div class="inner" style="text-align: center">
+        <p class="section-label">A gift is never required</p>
+        <h2 class="section-title">Wedding Registry</h2>
+        <div class="divider"></div>
+        <p
+          style="
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 480px;
+            margin: 0 auto 3rem;
+          "
+        >
+          Your love and presence is the greatest gift. Should you wish to honour
+          us further, we have listed a few things close to our hearts.
+        </p>
+        <div class="registry-btn-row">
+          <button class="reg-btn reg-btn-primary" onclick="openRegistryModal()">
+            <span class="reg-btn-label">Wedding Registry</span>
+            <span class="reg-btn-sub">View our gift list</span>
+          </button>
+          <button
+            class="reg-btn reg-btn-secondary"
+            onclick="
+              document.getElementById('cash-modal').classList.add('open')
+            "
+          >
+            <span class="reg-btn-label">Cash Gift</span>
+            <span class="reg-btn-sub">Bank &amp; payment details</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRY MODAL -->
+    <div class="modal-overlay" id="registry-modal">
+      <div class="modal modal-wide">
+        <div class="modal-header">
+          <h3>Our Gift Registry</h3>
+          <button
+            class="modal-close"
+            onclick="
+              document.getElementById('registry-modal').classList.remove('open')
+            "
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="padding: 2rem 2.5rem 2.5rem">
+            <p
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-style: italic;
+                font-size: 1.05rem;
+                color: var(--text-light);
+                text-align: center;
+                margin-bottom: 2rem;
+                line-height: 1.8;
+              "
+            >
+              We are building our home together — here are a few things we would
+              truly love and cherish.
+            </p>
+            <div class="registry-list" id="registry-list">
+              <div
+                style="
+                  text-align: center;
+                  padding: 2rem;
+                  color: var(--text-light);
+                  font-style: italic;
+                "
+              >
+                Loading...
+              </div>
+            </div>
+            <p
+              style="
+                font-size: 0.78rem;
+                color: var(--text-light);
+                text-align: center;
+                margin-top: 2rem;
+                line-height: 1.7;
+                font-style: italic;
+              "
+            >
+              To confirm your gift, please also email us at
+              <strong
+                ><a
+                  href="/cdn-cgi/l/email-protection"
+                  class="__cf_email__"
+                  data-cfemail="d9aabcb4b0b5b6abbcf7b8bdbcb6b5acaeb8ebe9ebef99beb4b8b0b5f7bab6b4"
+                  >[email&#160;protected]</a
+                ></strong
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLAIM MODAL -->
+    <div class="modal-overlay" id="claim-modal">
+      <div class="modal" style="max-width: 480px">
+        <div class="modal-header">
+          <h3 id="claim-item-title">Claim Gift</h3>
+          <button
+            class="modal-close"
+            onclick="
+              document.getElementById('claim-modal').classList.remove('open')
+            "
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body" id="claim-modal-body">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- CASH MODAL -->
+    <div class="modal-overlay" id="cash-modal">
+      <div class="modal" style="max-width: 480px">
+        <div class="modal-header">
+          <h3>Cash Gift</h3>
+          <button
+            class="modal-close"
+            onclick="
+              document.getElementById('cash-modal').classList.remove('open')
+            "
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="padding: 2.5rem; text-align: center">
+            <div id="cash-contrib-banner"></div>
+            <p
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-style: italic;
+                font-size: 1.1rem;
+                color: var(--text-light);
+                margin-bottom: 2rem;
+                line-height: 1.8;
+              "
+            >
+              If you prefer to give a monetary gift, we are deeply touched by
+              your generosity.
+            </p>
+            <div
+              style="
+                background: var(--white);
+                border: 1px solid rgba(201, 169, 110, 0.2);
+                border-radius: 4px;
+                padding: 1.8rem;
+                max-width: 380px;
+                margin: 0 auto;
+              "
+            >
+              <p
+                style="font-size: 0.9rem; color: var(--text); line-height: 2.2"
+              >
+                <strong style="color: var(--deep-rose)">Bank:</strong> First
+                Bank of Nigeria<br />
+                <strong style="color: var(--deep-rose)">Account Name:</strong>
+                Semilore &amp; Adeoluwa<br />
+                <strong style="color: var(--deep-rose)">Account No:</strong>
+                0123456789<br />
+                <strong style="color: var(--deep-rose)">Opay / Palmpay:</strong>
+                0901 234 5678
+              </p>
+              <p
+                style="
+                  font-size: 0.78rem;
+                  color: var(--text-light);
+                  margin-top: 1rem;
+                  line-height: 1.7;
+                "
+              >
+                Please include your name in the description — thank you from the
+                bottom of our hearts 🌸
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="inner">
+        <p class="section-label">Moments together</p>
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="divider"></div>
+        <div class="masonry" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <div class="lb-placeholder" id="lb-content">✿</div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-names">Semilore &amp; Adeoluwa</div>
+      <p>
+        August 15, 2026 &nbsp;<span class="heart-anim">♥</span>&nbsp; Ibadan,
+        Nigeria
+      </p>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a
+          href="/cdn-cgi/l/email-protection#f48791999d989b8691da9590919b98818395c6c4c6c2b49399959d98da979b99"
+          >Contact Us</a
+        >
+      </div>
+      <p>
+        With love &amp; gratitude for celebrating with us.<br />
+        Questions?
+        <a
+          href="/cdn-cgi/l/email-protection#9be8fef6f2f7f4e9feb5fafffef4f7eeecfaa9aba9addbfcf6faf2f7b5f8f4f6"
+          ><span
+            class="__cf_email__"
+            data-cfemail="7102141c181d1e03145f1015141e1d0406104341434731161c10181d5f121e1c"
+            >[email&#160;protected]</span
+          ></a
+        >
+      </p>
+      <p style="margin-top: 1.5rem; font-size: 0.72rem; opacity: 0.4">
+        ✦ Made with love ✦
+      </p>
+    </footer>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="/js/petals.js" defer></script>
+    <script src="/js/index.js" defer></script>
+  </body>
+</html>

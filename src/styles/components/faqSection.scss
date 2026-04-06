@@ -1,0 +1,155 @@
+.faqSection {
+  padding: 10rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  h1 {
+    font-size: 3rem;
+    font-family: "cera-bold";
+    text-align: center;
+  }
+
+  p {
+    margin: auto;
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 50rem;
+  }
+
+  &__buttons-section {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    justify-content: center;
+    button {
+      width: 15%;
+    }
+  }
+
+  &__faqs-section {
+    width: 100%;
+
+    display: flex;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+
+    .faq {
+      min-width: 45%;
+      width: 45%;
+      border-top: 2px solid #d9d9d9;
+
+      height: 3rem;
+
+      display: flex;
+      position: relative;
+      align-items: center;
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        border-top: none;
+      }
+
+      p {
+        position: absolute;
+        font-weight: 500;
+        line-height: 107.2%;
+      }
+
+      img {
+        margin-left: 12rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .faqSection {
+    padding: 5rem 1rem;
+    // width: 100%;
+ 
+
+    &__buttons-section {
+      overflow-x: scroll;
+      padding-left: 20rem;
+      // padding-right: 26rem;
+      
+    
+      width: 100%;
+
+      button {
+        min-width: max-content;
+
+        &:nth-child(6){
+          display: none;
+        }
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__faqs-section {
+      flex-direction: column;
+
+      .faq {
+        width: 90%;
+        margin: auto;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          border-top: 2px solid #d9d9d9;
+        }
+
+        p {
+          top: 1rem;
+          text-align: left;
+        }
+
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 495px) and (max-width: 1020px) {
+  .faqSection {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    padding: 4rem 2rem;
+    &__buttons-section {
+      overflow-x: scroll;
+      button {
+        min-width: max-content;
+      }
+    }
+
+    &__faqs-section {
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .faq {
+        min-width: 45%;
+        p {
+          top: 1rem;
+          text-align: left;
+        }
+
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+}

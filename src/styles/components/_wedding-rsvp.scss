@@ -1,0 +1,83 @@
+// Wedding RSVP Section
+#rsvp {
+  background: var(--blush);
+  text-align: center;
+
+  p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+}
+
+// RSVP Form
+.rsvp-field {
+  margin-bottom: 1.4rem;
+}
+
+.rsvp-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.rsvp-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(212, 165, 160, 0.4);
+  border-radius: 3px;
+  background: var(--ivory);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+
+  &:focus {
+    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(212, 165, 160, 0.15);
+  }
+}
+
+.rsvp-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.rsvp-radio-group,
+.rsvp-check-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.rsvp-radio,
+.rsvp-check {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(212, 165, 160, 0.3);
+  border-radius: 3px;
+  font-size: 0.88rem;
+  color: var(--text-light);
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--rose);
+    background: rgba(242, 217, 213, 0.15);
+  }
+
+  input {
+    accent-color: var(--deep-rose);
+    width: 16px;
+    height: 16px;
+  }
+}

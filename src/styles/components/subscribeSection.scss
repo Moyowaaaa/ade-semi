@@ -1,0 +1,115 @@
+.subscribeSection {
+  padding: 8rem 5rem;
+
+  &__container {
+    width: 75%;
+
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 130.7%;
+      max-width: 60rem;
+      text-align: center;
+    }
+
+    &--bullets-container {
+      width: 65%;
+      margin: auto;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      &__bullet {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        img {
+          height: 1.5rem;
+          width: 1.5rem;
+        }
+      }
+    }
+
+    &--input-container {
+      width: 65%;
+      margin: auto;
+      display: flex;
+      background-color: white;
+      border-radius: 3.5rem;
+
+      padding-left: 2rem;
+
+      input {
+        width: 100%;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        padding-right: 0.5rem;
+      }
+
+      button {
+        background-color: black;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 3.5rem;
+        min-width: 10rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .subscribeSection {
+    padding: 4rem 0;
+
+    &__container {
+      width: 100%;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      &--bullets-container {
+        width: 80%;
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: start;
+
+        &__bullet {
+          gap: 0.5rem;
+        }
+      }
+      &--input-container {
+        width: 80%;
+        margin: auto;
+        padding-left: 0.5rem;
+
+        button {
+          padding: 0.5rem;
+          min-width: max-content;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 495px) and (max-width: 1020px) {
+  .subscribeSection {
+    padding: 4rem 0;
+
+    &__container {
+      width: 100%;
+
+      &--bullets-container {
+        width: 90%;
+      }
+    }
+  }
+}

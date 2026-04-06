@@ -1,0 +1,230 @@
+.page {
+  min-height: 100vh;
+  position: relative;
+  height: max-content;
+  top: 0;
+}
+
+.titleSection {
+  min-height: max-content;
+  width: 100%;
+  max-height: max-content;
+  background-image: url("../assets/images/blackStar.webp"),
+    url("../assets/images/greenEllipse.webp"),
+    url("../assets/images/bigEcllipse.webp"),
+    url("../assets/images/greenStar.webp");
+  background-repeat: no-repeat;
+  background-position: 5rem 5rem, 2.5rem 60vh, center -5vh, 95% 5rem;
+  background-size: auto, auto, 40rem, auto;
+
+  position: relative;
+
+  &__page-container {
+    padding-top: 10vh;
+    width: 100%;
+    position: relative;
+    height: 100%;
+    padding-left: 5rem;
+    align-items: center;
+    display: flex;
+    padding-bottom: 15rem;
+
+    .title-p-cont {
+      @media screen and (min-width: 1023px) {
+        height: max-content;
+        overflow-y: hidden;
+      }
+    }
+
+    &--container {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      overflow-y: hidden;
+
+      h1 {
+        font-size: 4rem;
+        font-family: "cera-bold";
+        max-width: 50rem;
+        line-height: normal;
+      }
+
+      p {
+        max-width: 46rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      &__buttons {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        // heigh
+
+        .join {
+          background-color: black;
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 3.5rem;
+        }
+
+        .down {
+          background-color: white;
+          // padding:;
+          height: auto;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img {
+            max-height: 3rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__partners-container {
+    height: max-content;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    bottom: 0rem;
+    // display: none;
+
+    .partners {
+      display: flex;
+      gap: 3rem;
+
+      @media screen and (min-width: 1023px) {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 3rem;
+      }
+    }
+
+    img {
+      // width: ;
+      height: 50px;
+      width: 150px;
+    }
+  }
+
+  &__cards-container {
+    img {
+      width: 30rem;
+      position: absolute;
+      bottom: 2rem;
+      right: 0rem;
+    }
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .titleSection {
+    &__page-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      &--container {
+        h1 {
+          font-size: 2.5rem;
+          max-width: 100%;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        &__buttons {
+          .join {
+            padding: 1rem 2rem;
+          }
+          .down {
+            img {
+              height: 3rem;
+            }
+          }
+        }
+      }
+    }
+    &__partners-container {
+      width: 100%;
+      overflow-x: scroll;
+      padding: 2.5rem;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    &__cards-container {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 495px) and (max-width: 1020px) {
+  .titleSection {
+    &__page-container {
+      &--container {
+        h1 {
+          font-size: 2.5rem;
+          max-width: 100%;
+        }
+      }
+    }
+    &__partners-container {
+      width: 100%;
+      overflow-x: scroll;
+      padding: 2.5rem;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__cards-container {
+      display: none;
+    }
+  }
+}
+
+.title-cont {
+  max-height: 25rem;
+  overflow-y: hidden;
+
+  @media screen and (min-width: 1023px) {
+    max-height: max-content;
+
+    overflow-y: hidden;
+  }
+}
+
+.section-titles-cont {
+  max-height: 25rem;
+  overflow-y: hidden;
+
+  @media screen and (min-width: 1023px) {
+    max-height: max-content;
+
+    overflow-y: hidden;
+  }
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  /* CSS rules specific to iPhone X */
+  .down {
+    img {
+      max-width: 3rem;
+      max-height: 3rem;
+    }
+  }
+}

@@ -1,0 +1,149 @@
+.subSection {
+  height: max-content;
+  box-sizing: border-box;
+
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 5rem;
+  padding-right: 4rem;
+  width: 100%;
+
+  background-image: url("../assets/images/subStar.webp");
+  background-repeat: no-repeat;
+  background-position: 18rem 2rem;
+
+  &__section-container {
+    display: flex;
+
+    gap: 4rem;
+
+    &--hero-text-container {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      img {
+        width: 10rem;
+      }
+      h1 {
+        font-size: 4rem;
+        font-family: "cera-bold";
+      }
+
+      .heroButtons {
+        display: flex;
+
+        gap: 2rem;
+      }
+    }
+
+    &--management-text-container {
+      width: 25%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      height: max-content;
+
+      img {
+        width: 3.43538rem;
+        height: 2.9375rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-family: "cera-bold";
+      }
+      p {
+        color: rgba(0, 0, 0, 0.64);
+      }
+    }
+
+    &--transaction-text-container {
+      width: 25%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      height: max-content;
+
+      img {
+        width: 3.43538rem;
+        height: 2.9375rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-family: "cera-bold";
+      }
+      p {
+        color: rgba(0, 0, 0, 0.64);
+      }
+    }
+  }
+}
+
+#subHorizontalLine {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 10rem;
+}
+
+@media screen and (max-width: 490px) {
+  .subSection {
+    padding: 4rem 1rem;
+
+    &__section-container {
+      flex-direction: column;
+
+      &--hero-text-container {
+        width: 100%;
+
+        h1 {
+          font-size: 3.5rem;
+        }
+
+        .heroButtons {
+          flex-wrap: wrap;
+          button {
+            min-width: 100%;
+          }
+        }
+      }
+      &--management-text-container,
+      &--transaction-text-container {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 495px) and (max-width: 1020px) {
+  .subSection {
+    padding: 4rem 2rem;
+    &__section-container {
+      // flex-direction: column;
+      flex-wrap: wrap;
+
+      &--hero-text-container {
+        width: 100%;
+
+        h1 {
+          font-size: 5rem;
+        }
+
+        .heroButtons {
+          flex-wrap: wrap;
+          button {
+            min-width: 10rem;
+          }
+        }
+      }
+      &--management-text-container,
+      &--transaction-text-container {
+        width: 45%;
+      }
+    }
+  }
+}

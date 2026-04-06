@@ -1,0 +1,49 @@
+// Wedding Responsive Styles
+@media (max-width: 640px) {
+  .tl-photo {
+    display: none;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tl-dot {
+    display: none;
+  }
+
+  .masonry {
+    columns: 2 140px;
+  }
+
+  nav {
+    gap: 1rem;
+    padding: 1rem;
+
+    a {
+      font-size: 0.65rem;
+    }
+  }
+
+  .countdown-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .countdown-unit {
+    flex: 0 0 50%;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-bottom: 1px solid rgba(212, 165, 160, 0.2);
+    }
+  }
+
+  .venues-split {
+    grid-template-columns: 1fr;
+  }
+
+  .reg-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

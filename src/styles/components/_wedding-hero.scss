@@ -1,0 +1,116 @@
+// Wedding Hero Section
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 7rem 2rem 5rem;
+  background: radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      rgba(242, 217, 213, 0.55) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 20% 100%,
+      rgba(107, 124, 82, 0.12) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 80% 80%,
+      rgba(232, 216, 192, 0.35) 0%,
+      transparent 70%
+    ),
+    var(--ivory);
+}
+
+.hero-deco {
+  position: absolute;
+  opacity: 0.11;
+  pointer-events: none;
+  font-size: 300px;
+  line-height: 1;
+
+  &-tl {
+    top: -50px;
+    left: -50px;
+    color: var(--rose);
+  }
+
+  &-br {
+    bottom: -70px;
+    right: -30px;
+    color: var(--olive-pale);
+  }
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  margin-bottom: 2rem;
+  animation: fadeUp 0.9s ease both;
+}
+
+.hero-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--text);
+  animation: fadeUp 0.9s 0.15s ease both;
+
+  em {
+    display: block;
+    font-size: 0.55em;
+    letter-spacing: 0.08em;
+    font-style: normal;
+    color: var(--deep-rose);
+    margin: 0.3rem 0;
+  }
+}
+
+.hero-date {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+
+.hero-tagline {
+  margin-top: 1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--deep-rose);
+  animation: fadeUp 0.9s 0.45s ease both;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: floatAnim 2.5s ease-in-out infinite, fadeUp 0.9s 0.7s ease both;
+  color: var(--text-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  span {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--rose), transparent);
+    display: block;
+  }
+}

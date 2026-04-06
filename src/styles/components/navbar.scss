@@ -1,0 +1,46 @@
+.navbar {
+  width: 100%;
+
+  display: flex;
+  box-sizing: border-box;
+  padding: 1rem 5rem;
+  justify-content: space-between;
+  align-items: center;
+  font-style: normal;
+  font-weight: 600;
+  min-height: 5rem;
+  max-height: max-content;
+  overflow-y: hidden;
+
+  &__logo-container {
+    img {
+      width: 5rem;
+    }
+  }
+
+  &__links-container {
+    display: flex;
+    gap: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .navbar {
+    padding: 2rem 1rem;
+    align-items: center;
+
+    &__links-container {
+      display: none;
+    }
+
+    button {
+      padding: 0.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 495px) and (max-width: 1020px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+}

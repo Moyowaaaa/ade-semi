@@ -1,0 +1,134 @@
+// Wedding Story Timeline
+#story {
+  background: var(--white);
+
+  .inner {
+    text-align: center;
+  }
+}
+
+.timeline {
+  margin-top: 3rem;
+  display: grid;
+  gap: 0;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  &:nth-child(even) .tl-content {
+    text-align: right;
+  }
+}
+
+.tl-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.3rem;
+
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--rose);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--rose);
+    flex-shrink: 0;
+  }
+
+  .line {
+    width: 1px;
+    flex: 1;
+    background: linear-gradient(var(--blush), transparent);
+    margin-top: 6px;
+  }
+}
+
+.tl-content {
+  padding: 0.5rem 0;
+  text-align: left;
+}
+
+.tl-year {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.tl-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.tl-text {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.tl-photo {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.5rem;
+}
+
+.tl-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(
+    135deg,
+    rgba(242, 217, 213, 0.6),
+    rgba(212, 200, 180, 0.4)
+  );
+  border: 2px dashed rgba(212, 165, 160, 0.45);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '✦';
+    font-size: 1.4rem;
+    color: rgba(212, 165, 160, 0.5);
+  }
+
+  &:hover {
+    border-color: var(--rose);
+    background: linear-gradient(
+      135deg,
+      rgba(242, 217, 213, 0.8),
+      rgba(212, 200, 180, 0.6)
+    );
+  }
+}
+
+.tl-photo-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose);
+}

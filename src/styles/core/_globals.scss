@@ -1,0 +1,105 @@
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+
+
+main{
+  position: relative;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+html {
+  // scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  background-color: #EDEDED;
+  position: relative;
+  color: black;
+}
+
+@media screen and (min-width:1024px) {
+  html{
+      font-size: calc(100vw / 1440 * 16);
+  }
+
+}
+
+
+body {
+  perspective: 1px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+p {
+  line-height: 2rem;
+}
+img {
+  width: 100%;
+}
+section {
+  width: 100%;
+}
+button {
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  border: none;
+
+}
+
+.t{
+  position: relative;
+}
+
+
+
+::-webkit-scrollbar {
+
+  scroll-behavior: smooth;
+}
+/* Works on Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 4px;
+  scroll-behavior: smooth;
+  background:black   
+  
+ 
+}
+
+::-webkit-scrollbar-thumb {
+ 
+  border-radius: 20px;
+  border: 3px solid var(--chakra-colors-primary);
+  height: 2px;
+  background: linear-gradient(180deg, #4DE800 0%, #4DE800 149%);
+}
+
+
+.highlightText{
+  background: #9DFA6F;
+}
+
+
+.hoverLink{
+  background: linear-gradient(
+    90deg,
+    #4DE800 0%,
+    #4DE800 110.61%,
+    #9DFA6F 155.21%
+  );
+  background-position: right -100% bottom 0;
+  background-size: 200% 2px;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s, background-position 0s 0.3s;
+
+  width: max-content;
+
+  &:hover {
+    background-position: 100% 100%;
+    background-size: 100% 2px;
+    cursor: pointer;
+  }
+}

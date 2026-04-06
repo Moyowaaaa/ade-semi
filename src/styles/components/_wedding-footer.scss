@@ -1,0 +1,49 @@
+// Wedding Footer
+footer {
+  background: var(--text);
+  color: rgba(250, 246, 240, 0.7);
+  text-align: center;
+  padding: 4rem 2rem;
+
+  .footer-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--blush);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.82rem;
+    line-height: 2;
+    letter-spacing: 0.05em;
+  }
+
+  a {
+    color: var(--rose);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--blush);
+    }
+  }
+}
+
+.heart-anim {
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  color: var(--rose);
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+
+  a {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,112 @@
+// Wedding Buttons
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background: var(--deep-rose);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--deep-rose);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.15);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(176, 125, 122, 0.4);
+    transform: translateY(-2px);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &-olive {
+    background: var(--olive);
+    border-color: var(--olive);
+
+    &:hover {
+      box-shadow: 0 8px 30px rgba(107, 124, 82, 0.4);
+    }
+  }
+}
+
+// Registry Buttons
+.registry-btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.reg-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+  padding: 2rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid;
+  background: none;
+
+  &-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.35rem;
+  }
+
+  &-sub {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  &-primary {
+    background: var(--text);
+    color: var(--ivory);
+    border-color: var(--text);
+
+    .reg-btn-sub {
+      color: rgba(250, 246, 240, 0.6);
+    }
+
+    &:hover {
+      background: var(--deep-rose);
+      border-color: var(--deep-rose);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(176, 125, 122, 0.3);
+    }
+  }
+
+  &-secondary {
+    background: transparent;
+    color: var(--text);
+    border-color: rgba(58, 46, 42, 0.25);
+
+    .reg-btn-sub {
+      color: var(--text-light);
+    }
+
+    &:hover {
+      border-color: var(--olive);
+      color: var(--olive);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(107, 124, 82, 0.15);
+    }
+  }
+}

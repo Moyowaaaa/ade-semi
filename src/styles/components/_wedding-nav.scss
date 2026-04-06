@@ -1,0 +1,29 @@
+// Wedding Navigation
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1.2rem 2rem;
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(212, 165, 160, 0.2);
+
+  a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--deep-rose);
+    }
+  }
+}

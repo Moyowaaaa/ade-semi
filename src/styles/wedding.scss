@@ -1,0 +1,27 @@
+// Wedding Website Styles Entry Point
+// This file imports all wedding-specific SCSS modules
+
+// Core
+@import "core/wedding-variables";
+@import "core/wedding-base";
+
+// Shared
+@import "shared/wedding-sections";
+
+// Utils
+@import "utils/wedding-animations";
+@import "utils/wedding-responsive";
+
+// Components
+@import "components/wedding-canvas";
+@import "components/wedding-nav";
+@import "components/wedding-hero";
+@import "components/wedding-countdown";
+@import "components/wedding-story";
+@import "components/wedding-details";
+@import "components/wedding-rsvp";
+@import "components/wedding-buttons";
+@import "components/wedding-modals";
+@import "components/wedding-registry";
+@import "components/wedding-gallery";
+@import "components/wedding-footer";
