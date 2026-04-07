@@ -1,3 +1,11 @@
+import {
+  getRegistryItems,
+  claimGift,
+  contributeToFund,
+  listenToClaims,
+  formatNaira,
+} from "./sanity.js";
+
 // ══════════════════════════════════════════
 //  COUNTDOWN
 // ══════════════════════════════════════════
@@ -32,22 +40,27 @@ function updateCountdown() {
     }
   });
 }
-// Run countdown immediately, then every second
-updateCountdown();
-setInterval(updateCountdown, 1000);
+
+// Initialize countdown when DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+});
 
 // ══════════════════════════════════════════
 //  SCROLL REVEAL
 // ══════════════════════════════════════════
-document.querySelectorAll(".timeline-item").forEach((el) => {
-  new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add("visible");
-      });
-    },
-    { threshold: 0.15 },
-  ).observe(el);
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".timeline-item").forEach((el) => {
+    new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.15 },
+    ).observe(el);
+  });
 });
 
 // ══════════════════════════════════════════
@@ -75,36 +88,38 @@ const GRADS = [
   "linear-gradient(135deg,#d4ddc5,#f2d9d5)",
   "linear-gradient(135deg,#f2d9d5,#e8d8c0)",
 ];
-const gallGrid = document.getElementById("gallery-grid");
-GALLERY.forEach((item, i) => {
-  const d = document.createElement("div");
-  d.className = "masonry-item";
-  d.innerHTML = `<div class="gallery-placeholder" style="height:${item.h}px;background:${GRADS[i]};">${item.e}</div>`;
-  d.addEventListener("click", () => {
-    const lbc = document.getElementById("lb-content");
-    lbc.style.background = GRADS[i];
-    lbc.textContent = item.e;
-    document.getElementById("lightbox").classList.add("open");
-  });
-  gallGrid.appendChild(d);
-});
 function closeLightbox() {
   document.getElementById("lightbox").classList.remove("open");
 }
-document.getElementById("lightbox").addEventListener("click", function (e) {
-  if (e.target === this) closeLightbox();
+window.closeLightbox = closeLightbox;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const gallGrid = document.getElementById("gallery-grid");
+  if (gallGrid) {
+    GALLERY.forEach((item, i) => {
+      const d = document.createElement("div");
+      d.className = "masonry-item";
+      d.innerHTML = `<div class="gallery-placeholder" style="height:${item.h}px;background:${GRADS[i]};">${item.e}</div>`;
+      d.addEventListener("click", () => {
+        const lbc = document.getElementById("lb-content");
+        lbc.style.background = GRADS[i];
+        lbc.textContent = item.e;
+        document.getElementById("lightbox").classList.add("open");
+      });
+      gallGrid.appendChild(d);
+    });
+  }
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox) {
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === this) closeLightbox();
+    });
+  }
 });
 
 // ══════════════════════════════════════════
 //  REGISTRY — Sanity Backend
 // ══════════════════════════════════════════
-import {
-  getRegistryItems,
-  claimGift,
-  contributeToFund,
-  listenToClaims,
-  formatNaira,
-} from "./sanity.js";
 
 // type: 'claim'  → one person takes the whole item
 // type: 'fund'   → multiple contributors, tracks toward a goal amount
@@ -345,6 +360,9 @@ function openRegistryModal() {
   document.getElementById("registry-modal").classList.add("open");
 }
 
+// Expose functions globally for inline onclick handlers
+window.openRegistryModal = openRegistryModal;
+
 function openClaim(itemId, itemName) {
   _claimId = itemId;
   _claimItemName = itemName;
@@ -484,6 +502,12 @@ async function confirmContrib(btn) {
   }
 }
 
+// Expose all registry functions globally for inline onclick handlers
+window.openClaim = openClaim;
+window.openContrib = openContrib;
+window.confirmClaim = confirmClaim;
+window.confirmContrib = confirmContrib;
+
 // Pre-render on load
 window.addEventListener("load", renderRegistry);
 
@@ -507,6 +531,7 @@ window.addEventListener("beforeunload", () => {
 // ══════════════════════════════════════════
 //  RSVP SUBMIT
 // ══════════════════════════════════════════
+window.submitRSVP = submitRSVP;
 function submitRSVP(btn) {
   const name = document.getElementById("rsvp-name").value.trim();
   const email = document.getElementById("rsvp-email").value.trim();
@@ -554,36 +579,40 @@ function submitRSVP(btn) {
 // ══════════════════════════════════════════
 //  MODAL CLOSE ON OUTSIDE CLICK
 // ══════════════════════════════════════════
-["rsvp-modal", "registry-modal", "claim-modal"].forEach((id) => {
-  const el = document.getElementById(id);
-  if (el)
-    el.addEventListener("click", function (e) {
-      if (e.target === this) this.classList.remove("open");
+document.addEventListener("DOMContentLoaded", () => {
+  ["rsvp-modal", "registry-modal", "claim-modal"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el)
+      el.addEventListener("click", function (e) {
+        if (e.target === this) this.classList.remove("open");
+      });
+  });
+  // Cash modal — also clear banner on outside click
+  const cashModalEl = document.getElementById("cash-modal");
+  if (cashModalEl) {
+    cashModalEl.addEventListener("click", function (e) {
+      if (e.target === this) {
+        this.classList.remove("open");
+        const b = document.getElementById("cash-contrib-banner");
+        if (b) b.innerHTML = "";
+      }
     });
-});
-// Cash modal — also clear banner on outside click
-const cashModalEl = document.getElementById("cash-modal");
-if (cashModalEl) {
-  cashModalEl.addEventListener("click", function (e) {
-    if (e.target === this) {
-      this.classList.remove("open");
+  }
+  // Also clear banner when cash modal close button is used
+  const cashClose = document.querySelector("#cash-modal .modal-close");
+  if (cashClose) {
+    cashClose.addEventListener("click", function () {
       const b = document.getElementById("cash-contrib-banner");
       if (b) b.innerHTML = "";
+    });
+  }
+
+  // Parallax
+  window.addEventListener("scroll", function () {
+    var s = window.scrollY;
+    if (s < window.innerHeight) {
+      const hero = document.getElementById("hero");
+      if (hero) hero.style.backgroundPositionY = s * 0.3 + "px";
     }
   });
-}
-// Also clear banner when cash modal close button is used
-document
-  .querySelector("#cash-modal .modal-close")
-  .addEventListener("click", function () {
-    const b = document.getElementById("cash-contrib-banner");
-    if (b) b.innerHTML = "";
-  });
-
-// Parallax
-window.addEventListener("scroll", function () {
-  var s = window.scrollY;
-  if (s < window.innerHeight) {
-    document.getElementById("hero").style.backgroundPositionY = s * 0.3 + "px";
-  }
 });
