@@ -1,5 +1,5 @@
 {
-  "buildCommand": "vite build src",
+  "buildCommand": "npx vite build --config src/vite.config.js",
   "outputDirectory": "dist",
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
