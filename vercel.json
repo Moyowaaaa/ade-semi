@@ -1,11 +1,6 @@
 {
   "buildCommand": "vite build src",
   "outputDirectory": "dist",
-  "functions": {
-    "api/*.js": {
-      "runtime": "nodejs20"
-    }
-  },
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
