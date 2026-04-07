@@ -19,6 +19,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // Verify secret header to prevent abuse
+  const webhookSecret = process.env.SANITY_WEBHOOK_SECRET;
+  if (webhookSecret) {
+    const incoming = req.headers["secret"] || req.headers["SECRET"];
+    if (incoming !== webhookSecret) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+  }
+
   try {
     const body = req.body;
 
