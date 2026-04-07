@@ -1,11 +1,13 @@
 import "../styles/wedding.scss";
-import {
-  getRegistryItems,
-  claimGift,
-  contributeToFund,
-  listenToClaims,
-  formatNaira,
-} from "./sanity.js";
+
+// Lazy-load Sanity functions so the rest of the page works even if Sanity fails
+let _sanity = null;
+async function getSanity() {
+  if (!_sanity) {
+    _sanity = await import("./sanity.js");
+  }
+  return _sanity;
+}
 
 // ══════════════════════════════════════════
 //  COUNTDOWN
@@ -245,9 +247,9 @@ const REGISTRY_ITEMS_LEGACY = [
   },
 ];
 
-// Use Sanity's formatNaira function
+// Format currency inline (no Sanity dependency needed)
 function fmt(n) {
-  return formatNaira(n);
+  return "₦" + Number(n).toLocaleString("en-NG");
 }
 
 function getContribTotal(contributions) {
@@ -264,6 +266,7 @@ async function renderRegistry() {
 
   try {
     // Fetch items from Sanity
+    const { getRegistryItems } = await getSanity();
     const items = await getRegistryItems();
 
     // Separate into regular and fund items
@@ -393,6 +396,7 @@ async function openContrib(itemId, itemName, goal) {
   _claimGoal = goal;
 
   // Fetch current data from Sanity
+  const { getRegistryItems } = await getSanity();
   const items = await getRegistryItems();
   const item = items.find((i) => i.itemId === itemId);
   const raised = item?.totalRaised || 0;
@@ -442,6 +446,7 @@ async function confirmClaim(btn) {
   btn.textContent = "Claiming...";
 
   try {
+    const { claimGift } = await getSanity();
     await claimGift(_claimId, name, email);
     document.getElementById("claim-modal").classList.remove("open");
     await renderRegistry();
@@ -476,6 +481,7 @@ async function confirmContrib(btn) {
   btn.textContent = "Processing...";
 
   try {
+    const { contributeToFund } = await getSanity();
     const result = await contributeToFund(_claimId, name, email, amount);
     const cappedAmount = result.amount;
 
@@ -514,12 +520,17 @@ window.addEventListener("load", renderRegistry);
 
 // Set up real-time updates listener
 let realtimeSubscription = null;
-window.addEventListener("load", () => {
-  realtimeSubscription = listenToClaims((update) => {
-    // When a claim is added/updated, refresh the registry
-    console.log("Registry updated in real-time:", update);
-    renderRegistry();
-  });
+window.addEventListener("load", async () => {
+  try {
+    const { listenToClaims } = await getSanity();
+    realtimeSubscription = listenToClaims((update) => {
+      // When a claim is added/updated, refresh the registry
+      console.log("Registry updated in real-time:", update);
+      renderRegistry();
+    });
+  } catch (e) {
+    console.error("Real-time listener failed:", e);
+  }
 });
 
 // Clean up subscription when page unloads
