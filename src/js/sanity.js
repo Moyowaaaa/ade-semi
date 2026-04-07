@@ -18,7 +18,8 @@ export const writeClient = createClient({
 });
 
 // Fetch all registry items with their claims
-export async function getRegistryItems() {
+export async function getRegistryItems(fresh = false) {
+  const fetchClient = fresh ? writeClient : client;
   const query = `*[_type == "registryItem"] | order(itemId) {
     _id,
     itemId,
@@ -37,7 +38,7 @@ export async function getRegistryItems() {
     }
   }`;
 
-  const items = await client.fetch(query);
+  const items = await fetchClient.fetch(query);
 
   // Calculate totalRaised on the frontend since GROQ doesn't support sum()
   return items.map((item) => ({

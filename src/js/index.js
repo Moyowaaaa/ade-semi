@@ -256,7 +256,7 @@ function getContribTotal(contributions) {
   return (contributions || []).reduce((s, c) => s + Number(c.amount), 0);
 }
 
-async function renderRegistry() {
+async function renderRegistry(fresh = false) {
   const list = document.getElementById("registry-list");
   if (!list) return;
 
@@ -267,7 +267,7 @@ async function renderRegistry() {
   try {
     // Fetch items from Sanity
     const { getRegistryItems } = await getSanity();
-    const items = await getRegistryItems();
+    const items = await getRegistryItems(fresh);
 
     // Separate into regular and fund items
     const regular = items.filter((i) => i.type === "claim");
@@ -449,7 +449,7 @@ async function confirmClaim(btn) {
     const { claimGift } = await getSanity();
     await claimGift(_claimId, name, email);
     document.getElementById("claim-modal").classList.remove("open");
-    await renderRegistry();
+    await renderRegistry(true);
 
     // Show success message
     alert(`Thank you, ${name}! Your claim has been recorded. 🌸`);
@@ -487,7 +487,7 @@ async function confirmContrib(btn) {
 
     // Close claim modal, update registry
     document.getElementById("claim-modal").classList.remove("open");
-    await renderRegistry();
+    await renderRegistry(true);
 
     // Show cash modal immediately so guest can send the money
     const cashModal = document.getElementById("cash-modal");
