@@ -1,7 +1,15 @@
 import { createClient } from "@sanity/client";
 
-// Initialize Sanity client
+// CDN client for public reads (CORS-friendly)
 export const client = createClient({
+  projectId: "al7hyz6y",
+  dataset: "production",
+  useCdn: true,
+  apiVersion: "2024-01-01",
+});
+
+// Write client for mutations and real-time (only when token is available)
+export const writeClient = createClient({
   projectId: "al7hyz6y",
   dataset: "production",
   useCdn: false, // Real-time updates require useCdn: false
@@ -60,8 +68,8 @@ export async function claimGift(itemId, guestName, guestEmail) {
     throw new Error("This item has already been claimed");
   }
 
-  // Create claim
-  return await client.create({
+  // Create claim using write client
+  return await writeClient.create({
     _type: "claim",
     item: { _type: "reference", _ref: item._id },
     guestName,
@@ -96,7 +104,7 @@ export async function contributeToFund(itemId, guestName, guestEmail, amount) {
     throw new Error("Goal already reached");
   }
 
-  return await client.create({
+  return await writeClient.create({
     _type: "claim",
     item: { _type: "reference", _ref: item._id },
     guestName,
@@ -111,7 +119,7 @@ export async function contributeToFund(itemId, guestName, guestEmail, amount) {
 // Real-time listener for claims
 export function listenToClaims(callback) {
   const query = '*[_type == "claim"]';
-  const subscription = client.listen(query).subscribe((update) => {
+  const subscription = writeClient.listen(query).subscribe((update) => {
     console.log("Real-time update received:", update);
     callback(update);
   });
