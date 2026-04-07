@@ -284,7 +284,7 @@ async function renderRegistry() {
         <div class="registry-item-info">
           <div class="registry-item-name" style="${taken ? "opacity:.45;text-decoration:line-through;" : ""}">${item.name}</div>
           <div class="registry-item-desc">${item.description}</div>
-          ${taken ? `<div class="claimed-by">Claimed by ${fullClaim.guestName}</div>` : ""}
+          ${taken ? `<div class="claimed-by">Claimed </div>` : ""}
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0;min-width:90px;">
           <div class="registry-item-status ${taken ? "taken" : "available"}">${taken ? "Claimed" : "Available"}</div>
