@@ -58,8 +58,8 @@ export async function claimGift(itemId, guestName, guestEmail) {
 
   if (!item) throw new Error("Item not found");
 
-  // Check if already claimed
-  const existingClaim = await client.fetch(
+  // Check if already claimed — use writeClient (no CDN cache) for fresh data
+  const existingClaim = await writeClient.fetch(
     `*[_type == "claim" && references($itemRef) && claimType == "claim"][0]`,
     { itemRef: item._id },
   );

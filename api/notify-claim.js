@@ -1,22 +1,22 @@
 import { Resend } from "resend";
+import { createClient } from "@sanity/client";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const COUPLE_EMAIL = process.env.COUPLE_EMAIL || "your@email.com";
 const WEDDING_DATE = "August 15, 2026";
 
+const sanity = createClient({
+  projectId: "al7hyz6y",
+  dataset: "production",
+  useCdn: false,
+  apiVersion: "2024-01-01",
+  token: process.env.VITE_SANITY_TOKEN || "",
+});
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
-  }
-
-  // Verify Sanity webhook secret to prevent abuse
-  const webhookSecret = process.env.SANITY_WEBHOOK_SECRET;
-  if (webhookSecret) {
-    const signature = req.headers["sanity-webhook-signature"];
-    if (!signature || !signature.includes(webhookSecret)) {
-      return res.status(401).json({ error: "Unauthorized" });
-    }
   }
 
   try {
@@ -29,7 +29,16 @@ export default async function handler(req, res) {
 
     const { guestName, guestEmail, claimType, amount, item } = body;
 
-    const itemName = item?.name || "a gift";
+    // Fetch item name from Sanity — webhook body only has the _ref, not the name
+    let itemName = "a gift";
+    if (item?._ref) {
+      try {
+        const registryItem = await sanity.fetch(`*[_id == $id][0]{ name }`, {
+          id: item._ref,
+        });
+        if (registryItem?.name) itemName = registryItem.name;
+      } catch (_) {}
+    }
     const isContribution = claimType === "contribution";
     const formattedAmount = amount
       ? "₦" + Number(amount).toLocaleString("en-NG")
