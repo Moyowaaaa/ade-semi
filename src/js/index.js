@@ -1,3 +1,4 @@
+import "../styles/wedding.scss";
 import {
   getRegistryItems,
   claimGift,
