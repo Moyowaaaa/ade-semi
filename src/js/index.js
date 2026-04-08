@@ -265,7 +265,6 @@ async function renderRegistry(fresh = false) {
     '<div style="text-align:center;padding:2rem;color:var(--text-light);font-style:italic;">Loading registry...</div>';
 
   try {
-    // Fetch items from Sanity
     const { getRegistryItems } = await getSanity();
     const items = await getRegistryItems(fresh);
 
