@@ -49,3 +49,32 @@
     transform: scale(1.2);
   }
 }
+
+// Story timeline: soft light traveling top → bottom along the connector
+@keyframes storyLineGlowSweep {
+  0% {
+    top: -48%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes storyDotPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px var(--rose), 0 0 10px rgba(212, 165, 160, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 2px var(--rose), 0 0 18px rgba(255, 210, 210, 0.65),
+      0 0 32px rgba(212, 165, 160, 0.35);
+  }
+}
