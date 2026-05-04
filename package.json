@@ -17,6 +17,7 @@
   "dependencies": {
     "@sanity/client": "^7.20.0",
     "@studio-freight/lenis": "^1.0.19",
+    "@supabase/supabase-js": "^2.105.3",
     "dotenv": "^17.4.1",
     "gsap": "^3.12.2",
     "resend": "^6.10.0",

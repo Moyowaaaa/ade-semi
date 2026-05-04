@@ -686,7 +686,7 @@ window.addEventListener("beforeunload", () => {
 //  RSVP SUBMIT
 // ══════════════════════════════════════════
 window.submitRSVP = submitRSVP;
-function submitRSVP(btn) {
+async function submitRSVP(btn) {
   const name = document.getElementById("rsvp-name").value.trim();
   const email = document.getElementById("rsvp-email").value.trim();
   const phone = document.getElementById("rsvp-phone").value.trim();
@@ -707,27 +707,29 @@ function submitRSVP(btn) {
     return;
   }
 
-  // Save locally
-  const rsvps = JSON.parse(localStorage.getItem("sa_rsvps_v1") || "[]");
-  rsvps.push({
-    name,
-    email,
-    phone,
-    attending,
-    events,
-    message,
-    at: new Date().toISOString(),
-  });
-  localStorage.setItem("sa_rsvps_v1", JSON.stringify(rsvps));
+  // Disable button and show loading
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = "Sending...";
 
-  const body = document.getElementById("rsvp-modal-body");
-  body.innerHTML = `
-    <div style="padding:4rem 2rem;text-align:center;">
-      <div style="font-size:3rem;margin-bottom:1.2rem;animation:heartbeat 1.2s ease-in-out infinite;">💌</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--text);margin-bottom:1rem;">Thank You, ${name.split(" ")[0]}!</h3>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--deep-rose);margin-bottom:1rem;">"We can't wait to celebrate with you."</p>
-      <p style="font-size:.88rem;color:var(--text-light);line-height:1.8;">Your RSVP has been received. See you on <strong>August 15, 2026</strong>! 🌸</p>
-    </div>`;
+  try {
+    const { submitRSVP: saveRSVP } = await import("./supabase.js");
+    await saveRSVP({ name, email, phone, attending, events, message });
+
+    const body = document.getElementById("rsvp-modal-body");
+    body.innerHTML = `
+      <div style="padding:4rem 2rem;text-align:center;">
+        <div style="font-size:3rem;margin-bottom:1.2rem;animation:heartbeat 1.2s ease-in-out infinite;">💌</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--text);margin-bottom:1rem;">Thank You, ${name.split(" ")[0]}!</h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--deep-rose);margin-bottom:1rem;">"We can't wait to celebrate with you."</p>
+        <p style="font-size:.88rem;color:var(--text-light);line-height:1.8;">Your RSVP has been received. See you on <strong>August 15, 2026</strong>! 🌸</p>
+      </div>`;
+  } catch (error) {
+    console.error("RSVP failed:", error);
+    alert(error.message || "Failed to submit RSVP. Please try again.");
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
 }
 
 // ══════════════════════════════════════════
