@@ -27,3 +27,27 @@ export async function submitRSVP(data) {
   
   return result;
 }
+
+export async function submitClaim(data) {
+  const { itemId, itemName, guestName, guestEmail, claimType, amount, message } = data;
+  
+  const { data: result, error } = await supabase
+    .from('claims')
+    .insert({
+      item_id: itemId,
+      item_name: itemName,
+      guest_name: guestName,
+      guest_email: guestEmail,
+      claim_type: claimType,
+      amount: amount || null,
+      message: message || null,
+      status: 'pending'
+    })
+    .select();
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return result;
+}

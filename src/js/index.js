@@ -590,6 +590,18 @@ async function confirmClaim(btn) {
   try {
     const { claimGift } = await getSanity();
     await claimGift(_claimId, name, email);
+    
+    // Also store in Supabase
+    const { submitClaim } = await import("./supabase.js");
+    await submitClaim({
+      itemId: _claimId,
+      itemName: _claimItemName,
+      guestName: name,
+      guestEmail: email,
+      claimType: 'claim',
+      message: null
+    });
+    
     document.getElementById("claim-modal").classList.remove("open");
     await renderRegistry(true);
 
@@ -626,6 +638,18 @@ async function confirmContrib(btn) {
     const { contributeToFund } = await getSanity();
     const result = await contributeToFund(_claimId, name, email, amount);
     const cappedAmount = result.amount;
+    
+    // Also store in Supabase
+    const { submitClaim } = await import("./supabase.js");
+    await submitClaim({
+      itemId: _claimId,
+      itemName: _claimItemName,
+      guestName: name,
+      guestEmail: email,
+      claimType: 'contribution',
+      amount: cappedAmount,
+      message: null
+    });
 
     // Close claim modal, update registry
     document.getElementById("claim-modal").classList.remove("open");
