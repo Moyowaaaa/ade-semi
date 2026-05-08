@@ -468,13 +468,7 @@ async function renderRegistry(fresh = false) {
             <span>${pct}% of ${fmt(item.goal)}</span>
           </div>
         </div>
-        ${
-          contribs.length > 0
-            ? `<div class="contributors-list">
-          ${contribs.map((c) => `<div class="contributor-entry">✦ <span>${c.guestName}</span> contributed ${fmt(c.amount)}</div>`).join("")}
-        </div>`
-            : ""
-        }
+     
         <div style="text-align:right;">
             ${
               full
