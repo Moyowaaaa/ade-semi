@@ -8,7 +8,11 @@
     "build": "vite build src",
     "preview": "vite preview",
     "studio": "cd studio && sanity dev",
-    "studio:deploy": "cd studio && sanity deploy"
+    "studio:deploy": "cd studio && sanity deploy",
+    "mail": "node scripts/mailer.mjs",
+    "mail:audience": "node scripts/mailer.mjs audience",
+    "mail:status": "node scripts/mailer.mjs status",
+    "api:dev": "node scripts/local-api.mjs"
   },
   "devDependencies": {
     "@sanity/cli": "^3.22.0",

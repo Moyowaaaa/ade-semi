@@ -1,4 +1,19 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npx vite build --config src/vite.config.js",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "functions": {
+    "api/campaigns/send.js": {
+      "maxDuration": 300
+    },
+    "api/cron/resume-campaigns.js": {
+      "maxDuration": 300
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/resume-campaigns",
+      "schedule": "0 9 * * *"
+    }
+  ]
 }

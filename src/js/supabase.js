@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -7,9 +7,9 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export async function submitRSVP(data) {
   const { name, email, phone, attending, events, message } = data;
-  
+
   const { data: result, error } = await supabase
-    .from('rsvps')
+    .from("rsvps")
     .insert({
       name,
       email,
@@ -17,22 +17,30 @@ export async function submitRSVP(data) {
       attending,
       events,
       message,
-      created_at: new Date().toISOString()
+      created_at: new Date().toISOString(),
     })
     .select();
-  
+
   if (error) {
     throw new Error(error.message);
   }
-  
+
   return result;
 }
 
 export async function submitClaim(data) {
-  const { itemId, itemName, guestName, guestEmail, claimType, amount, message } = data;
-  
+  const {
+    itemId,
+    itemName,
+    guestName,
+    guestEmail,
+    claimType,
+    amount,
+    message,
+  } = data;
+
   const { data: result, error } = await supabase
-    .from('claims')
+    .from("claims")
     .insert({
       item_id: itemId,
       item_name: itemName,
@@ -41,13 +49,13 @@ export async function submitClaim(data) {
       claim_type: claimType,
       amount: amount || null,
       message: message || null,
-      status: 'pending'
+      status: "pending",
     })
     .select();
-  
+
   if (error) {
     throw new Error(error.message);
   }
-  
+
   return result;
 }
